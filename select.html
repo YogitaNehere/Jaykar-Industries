@@ -1,0 +1,38 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+ 
+<head>
+ 
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Disable Text Boxes</title>
+<script type="text/javascript">
+<!--
+ function disableTextBox(obj)
+  { var selected=document.myForm.mySelect.options[obj.selectedIndex].value;
+   // invalid selection 
+    if(selected=="999"){ return; }
+     // ------------
+   // valid selection
+    if(selected=="own")
+     { document.myForm.vcomm.disabled=true; 
+       document.myForm.vstatus.disabled=true;  
+     }
+  }
+//-->
+</script>
+</head>
+ 
+<body>
+ 
+<form name="myForm">
+  <p><select name="mySelect" onChange="disableTextBox(this)">
+  <option value="999">Select ...</option>
+  <option value="own">Own</option>
+  <option value="attached">Attached</option>
+  </select> <input type="text" name="vcomm" value="12345">
+  <input type="text" name="vstatus" value="98765"> </p>
+</form>
+ 
+</body>
+ 
+</html>
