@@ -23,6 +23,16 @@ $pages = ceil($count/$per_page);
 <script type="text/javascript" src="../js/slider.js"></script>
 <script type="text/javascript" src="../js/superfish.js"></script>
 <script type="text/javascript" src="../js/toword.js"></script>
+<link rel="stylesheet" href="jquery-ui.css" />
+<script src="jquery-1.8.2.js"></script>
+<script src="jquery-ui.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.datepicker').live('click', function() {
+    $(this).datepicker('destroy').datepicker({changeMonth: true,changeYear: true,dateFormat: "yy-mm-dd",yearRange: "1900:+10",showOn:'focus'}).focus();
+    });
+});
+</script>
 <script>
 var total = 0;
 function getValues() {
@@ -66,6 +76,18 @@ function getQuant()
 {
 	$q1="select * from sub_sale where product=";
 }
+function chk()
+	{
+		if(document.getElementById("d1").value!='' && document.getElementById("d2").value!='')
+		{
+			return(true);
+		}
+		else
+		{
+		  alert("Select date");
+			return(false);
+		}
+	}
 </script>
 	<script type="text/javascript">
 	
@@ -123,17 +145,24 @@ function getQuant()
 		<?php
 		   include("include/p_header.php");
 		?>
-        
        	<table class="emp_tab">
         <tr class="search_res">
-        <td class="info" align="center">
-        <span>Purches Details </span>
+        <td class="info"><span class="newbook"><a href="#" rel="popuprel" class="popup new">Purches Report</a> </span>  
         </td>
         </tr>
         </table>
-        <div class="popupbox_small" id="popuprel">
+        <div class="popupbox7" id="popuprel">
 		<div id="intabdiv">
-        
+        	<h2>Sales Details</h2>
+            <form name="form5" action="rptPurches.php" method="post" onSubmit="return chk()">
+              Select Date1 : <input type="text" name="dt1" class="datepicker" id="d1">
+           	  <br/><br/>
+              Select Date2 : <input type="text" name="dt2" class="datepicker" id="d2">
+              <br/><br/>
+              <div class="i_button29">                 
+              <input type="submit" name="go" value="Show">
+              </div> 
+            </form>
         </div>
 		</div>
        		<div id="loading" ></div>
@@ -152,21 +181,13 @@ function getQuant()
 	</ul>	
 	</Td></tr></table>
 
-                </div>
-                              
-               
-  				</div>
-                
-                </div>
-                
+     </div>
+     </div>
+                    
  <div id="fade"></div>
-       
-  	<div class="clear"></div>
-    </div>
-</div>
+ <div class="clear"></div>
  <div id="footer">
      <div class="clear"></div> 
-    </div>
-    </div>
+ </div>
 </body>
 </html>

@@ -23,7 +23,6 @@ $pages = ceil($count/$per_page);
 			header("location:client.php?res=er1");
 		}
 	}
-
 	if(isset($_REQUEST['add']))
 	{
 		$t1=$_POST['t1'];
@@ -36,7 +35,6 @@ $pages = ceil($count/$per_page);
             ?>
 			<p><font color="#CC0000" size="+1"> ** Record not inserted. All fields are required.</font></p>
             <?php
-			
 		}
 		else
 		{
@@ -68,7 +66,6 @@ $pages = ceil($count/$per_page);
 <script type="text/javascript" src="js/addrow.js"></script>
 <script type="text/javascript" src="custom.js"></script>
 	<script type="text/javascript">
-	
 	$(document).ready(function(){
 		
 	//Display Loading Image

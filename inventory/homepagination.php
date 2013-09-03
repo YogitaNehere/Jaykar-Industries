@@ -17,6 +17,7 @@ $res_u=mysql_query($qry_u);
         <tr class="menu_header">
         <td width="200">Customer Name</td>
         <td width="200">Contact</td>
+         <td width="200">Total Paid</td>
         <td width="200">Balance (Rs/-)</td>
         <td width="200">Total Amt (Rs/-)</td>
         </tr>
@@ -33,13 +34,16 @@ $res_u=mysql_query($qry_u);
 		$row_2=mysql_fetch_array($res_2);
 		
 		$balance=$row_u[5]-$row_2[0];
-		
+		$paid=$row_u[5]-$balance;
 		echo "<tr class='pagi'>";
 		echo "<td>";
 		echo $row_u[1]; 
 		echo "</td>";
 		echo "<td>";
 		echo $row_c[3];
+		echo "</td>";
+		echo "<td>";
+		echo $paid; 
 		echo "</td>";
 		echo "<td>";
 		echo $balance;

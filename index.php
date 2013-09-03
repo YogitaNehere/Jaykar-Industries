@@ -25,6 +25,7 @@ error_reporting(0);
 <head>
 <title>Jaykar Industries</title>
 <link href="login-box.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="images/favicon.ico">
 <style type="text/css">
 
 .reference {

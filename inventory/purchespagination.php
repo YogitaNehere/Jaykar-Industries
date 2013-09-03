@@ -23,33 +23,29 @@ $res1=mysql_fetch_array($r1);
         <td width="150">Raw Material</td>
         <td width="150">Quantity</td>
         <td width="150">Amount</td>
-       
-
         </tr>
         <?php
 		while($row_u=mysql_fetch_array($res_u))
 		{	
-		echo "<tr class='pagi'>";
-        echo "<td>";
-		echo $row_u[0]; 
-		echo "</td>";
-		echo "<td>";
-		echo date('d-m-Y', strtotime($row_u[6]));
-		echo "</td>";
-		echo "<td>";
-		echo $row_u[5];
-		echo "</td>";
-		echo "<td>";
-		echo $row_u[2];
-		echo "</td>";
-		echo "<td>";
-		echo $row_u[3];
-		echo "</td>";
-		echo "<td>";
-		echo $row_u[4];
-		echo "</td>";
-		
-		
+			echo "<tr class='pagi'>";
+			echo "<td>";
+			echo $row_u[0]; 
+			echo "</td>";
+			echo "<td>";
+			echo date('d-m-Y', strtotime($row_u[6]));
+			echo "</td>";
+			echo "<td>";
+			echo $row_u[5];
+			echo "</td>";
+			echo "<td>";
+			echo $row_u[2];
+			echo "</td>";
+			echo "<td>";
+			echo $row_u[3];
+			echo "</td>";
+			echo "<td>";
+			echo $row_u[4];
+			echo "</td>";
 		}
 		?>
         <tr class="pagi"><td></td>

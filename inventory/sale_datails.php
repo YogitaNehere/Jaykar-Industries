@@ -70,6 +70,16 @@ $res_c=mysql_query($qry_c);
 <script type="text/javascript" src="../js/superfish.js"></script>
 <script type="text/javascript" src="custom.js"></script>
 <script type="text/javascript" src="../js/toword.js"></script>
+<link rel="stylesheet" href="jquery-ui.css" />
+<script src="jquery-1.8.2.js"></script>
+<script src="jquery-ui.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.datepicker').live('click', function() {
+    $(this).datepicker('destroy').datepicker({changeMonth: true,changeYear: true,dateFormat: "yy-mm-dd",yearRange: "1900:+10",showOn:'focus'}).focus();
+    });
+});
+</script>
 <script>
 function showUser(str)
 {
@@ -107,8 +117,7 @@ var obj = document.getElementsByTagName("input");
          if(obj[i].name == "qnt[]")
 		 {
 			 var qty = obj[i].value;
-			
-		}
+		 }
          if(obj[i].name == "r[]")
 		 {
 			 var rate = obj[i].value;
@@ -126,14 +135,13 @@ var obj = document.getElementsByTagName("input");
 				    total+=(obj[i].value*1);
 				}
           }
-       
 		 }
 		 var vat =document.getElementById("vat").value;
 		 var add=total*1;
 		 var v1=(total*125)/1000;
 		 add+=(v1*1);		 
         document.getElementById("total").value = total*1;
-		  document.getElementById("vat").value = v1*1;
+		document.getElementById("vat").value = v1*1;
 		document.getElementById("g_total").value = add*1;
 		var words = toWords(add);
 		document.getElementById("word").innerHTML=words;
@@ -144,7 +152,18 @@ var obj = document.getElementsByTagName("input");
 </script>
 
 	<script type="text/javascript">
-	
+	function chk()
+	{
+		if(document.getElementById("d1").value!='' && document.getElementById("d2").value!='')
+		{
+			return(true);
+		}
+		else
+		{
+		  alert("Select date");
+			return(false);
+		}
+	}
 	$(document).ready(function(){
 		
 	//Display Loading Image
@@ -204,31 +223,32 @@ function getText(){
 		<?php
 		   include("include/p_header.php");
 		?>
-        <form action="" method="post">
+ 
        	<table class="emp_tab">
         <tr class="search_res">
-        <td class="info" align="center">Sales Details    
+       
+        <td class="info" ><span class="newbook"><a href="#" rel="popuprel" class="popup new">Sales Report</a> </span>  
         </td>
         </tr>
         </table>
         
-        <div class="popupbox2" id="popuprel">
+        <div class="popupbox7" id="popuprel">
 		<div id="intabdiv">
-        <h2>Invoice Details</h2>
+        <h2>Sales Details</h2>
                 
-                <form name="form5" action="" method="post" enctype="multipart/form-data">
-                
-                <br><br>
-                
-                
-                
-               
- 				
+                <form name="form5" action="rptSale.php" method="post" onSubmit="return chk()">
+ 				 Select Date1 : <input type="text" name="dt1" class="datepicker" id="d1" >
+                 <br/><br/>
+                 Select Date2 : <input type="text" name="dt2" class="datepicker" id="d2">
+                 <br/><br/>
+ 				 <div class="i_button29">                 
+                 <input type="submit" name="go" value="Show">
+                 </div> 
 				</form>
         
 		</div>
         </div>
-        <div>        
+        
         <div id="loading" ></div>
 		<div id="content" ></div>
         
